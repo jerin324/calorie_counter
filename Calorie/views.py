@@ -78,8 +78,12 @@ def dashboard(request):
     return render(request, 'dashboard.html',context)
 @login_required
 def profile_page(request):
-    
-    return render(request, 'profile.html')
+    profile, created = ProfileModel.objects.get_or_create(user=request.user)
+
+    context = {
+        'profile': profile
+    }
+    return render(request, 'profile.html', context)
 @login_required
 def profile_update(request):
     user = request.user

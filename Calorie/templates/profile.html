@@ -2,15 +2,30 @@
 
 {% block content %}
 {% include 'master/message.html' %}
-<h1>Profile Info</h1>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{request.user.user_profile.name}}</h6>
-    <p class="card-text">Username: {{request.user.username}} </p>
-  </div>
+
+<h2 class="mb-4">Profile Information</h2>
+
+<div class="col-md-5 mx-auto">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>{{ profile.name|default:"No Name" }}</h4>
+        </div>
+
+        <div class="card-body">
+
+            <p><strong>Username:</strong> {{ request.user.username }}</p>
+            <p><strong>Age:</strong> {{ profile.age }}</p>
+            <p><strong>Weight:</strong> {{ profile.weight }} kg</p>
+            <p><strong>Height:</strong> {{ profile.height }} cm</p>
+            <p><strong>Gender:</strong> {{ profile.gender }}</p>
+            <p><strong>BMR:</strong> {{ profile.bmr }} kcal</p>
+
+        </div>
+
+        <div class="card-footer text-center">
+            <a href="{% url 'profile_update' %}" class="btn btn-warning">Update Profile</a>
+        </div>
+    </div>
 </div>
-<a href="{% url 'profile_update' %}" class="btn btn-primary mt-2">Update Profile</a>
-    
-{% endblock content %}
-    
+
+{% endblock %}
