@@ -1,0 +1,16 @@
+{% extends 'master/base.html' %}
+
+{% block content %}
+{% include 'master/message.html' %}
+<h1>Profile Info</h1>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{request.user.user_profile.name}}</h6>
+    <p class="card-text">Username: {{request.user.username}} </p>
+  </div>
+</div>
+<a href="{% url 'profile_update' %}" class="btn btn-primary mt-2">Update Profile</a>
+    
+{% endblock content %}
+    

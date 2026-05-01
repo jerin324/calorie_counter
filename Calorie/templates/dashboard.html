@@ -1,0 +1,28 @@
+{% extends 'master/base.html' %}
+
+{% block content %}
+  {% include 'master/message.html' %}
+  <div class="row mt-4">
+    <div class="card col-md-4">
+      <div class="card-header">Required Calorie</div>
+      <div class="card-body">
+        <h5 class="card-title">{{req_calorie}} kcal</h5>
+      </div>
+    </div>
+
+    <div class="card col-md-4">
+      <div class="card-header">Today Consumed Calorie</div>
+      <div class="card-body">
+        <h5 class="card-title">{{today_consumed}} kcal</h5>
+      </div>
+    </div>
+
+    <div class="card col-md-4">
+      <div class="card-header">Status</div>
+      <div class="card-body">
+        <h5 class="card-title">{{status}}</h5>
+      </div>
+    </div>
+    
+  </div>
+{% endblock %}
